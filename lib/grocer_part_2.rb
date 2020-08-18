@@ -12,7 +12,7 @@ def apply_coupons(cart, coupons)
         cart << cart[cart_num]
         binding.pry
         cart[cart.length - 1][:price] = coupon_item[:cost] / coupon_item[:num]
-        cart[cart.length - 1][:name] += " W/ COUPON"
+        cart[cart.length - 1][:item] += " W/ COUPON"
       end
     end
   end
