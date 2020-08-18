@@ -6,15 +6,9 @@ def apply_coupons(cart, coupons)
   #
   # REMEMBER: This method **should** update cart
   cart = consolidate_cart(cart)
-  binding.pry
   coupons.each do |coupon_item|
     cart_num = cart.find_index {|cart_item| cart_item[:name] == coupon_item[:name]}
-    if cart_num && (cart[cart_num][:count] >= coupon_item[:num])
-      cart << {item: "#{cart[cart_num][:name]} W/ COUPON", price: coupon_item[:cost] / coupon_item[:num], clearance: cart[cart_num][:clearance], count: (cart[cart_num][:count] / coupon_item[:num]).to_i}
-      cart[cart_num][:count] = cart[cart_num][:count] % coupon_item[:num]
-    end
   end
-  cart
 end
 
 def apply_clearance(cart)
