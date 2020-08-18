@@ -12,6 +12,7 @@ def apply_coupons(cart, coupons)
         cart << cart[cart_num]
         cart[cart.length - 1][:price] = coupon_item[:cost] / coupon_item[:num]
         cart[cart.length - 1][:item] += " W/ COUPON"
+        binding.pry
       end
     end
   end
