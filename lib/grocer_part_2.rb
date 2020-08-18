@@ -12,7 +12,7 @@ def apply_coupons(cart, coupons)
       if cart[cart_num][:count] % coupon_item[:num] == 0
         cart.delete_at(cart_num)
       else
-        cart[cart_num][:count] %= coupon_item[:num]
+        cart[cart_num][:count] = cart[cart_num][:count] % coupon_item[:num]
       end
     end
   end
