@@ -35,5 +35,5 @@ def checkout(cart, coupons)
   # some irritated customers
   cart = apply_clearance(apply_coupons(consolidated_cart(cart)))
   total_cost = 0.0
-  
+  cart.sum {|cart_item| cart_item[:price] * cart_item[:count]}
 end
