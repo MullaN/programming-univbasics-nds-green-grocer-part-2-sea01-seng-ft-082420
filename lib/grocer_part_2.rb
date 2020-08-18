@@ -11,6 +11,7 @@ def apply_coupons(cart, coupons)
     if cart_num
       binding.pry
       if cart[cart_num][:count] >= coupon_item[:num]
+        binding.pry
         cart << cart[cart_num]
         cart[cart.length][:price] = coupon[:cost] / coupon[:num]
         cart[cart.length][:name] += " W/ COUPON"
