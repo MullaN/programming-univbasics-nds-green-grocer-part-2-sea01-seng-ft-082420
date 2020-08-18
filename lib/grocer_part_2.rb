@@ -8,6 +8,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon_item|
     binding.pry
     cart_num = cart.find_index {|cart_item| cart_item[:name] == coupon_item[:name]}
+    binding.pry
     if cart_num && cart[cart_num][:count] >= coupon_item[:num]
       cart << {item: "#{cart[cart_num][:item]} W/COUPON", price: coupon_item[:cost] / coupon_item[:num], clearance: cart[cart_num][:clearance], count: (cart[cart_num][:count] / coupon_item[:num]).to_i * coupon_item[:num]}
       if cart[cart_num][:count] % coupon_item[:num] == 0
