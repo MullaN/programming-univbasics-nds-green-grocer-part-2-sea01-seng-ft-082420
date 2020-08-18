@@ -6,7 +6,6 @@ def apply_coupons(cart, coupons)
   #
   # REMEMBER: This method **should** update cart
   coupons.each do |coupon_item|
-    binding.pry
     cart_num = cart.find_index {|cart_item| cart_item[:item] == coupon_item[:name]}
     binding.pry
     if cart_num && cart[cart_num][:count] >= coupon_item[:num]
