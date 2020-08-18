@@ -8,7 +8,15 @@ def apply_coupons(cart, coupons)
   cart = consolidate_cart(cart)
   coupons.each do |coupon_item|
     cart_num = cart.find_index {|cart_item| cart_item[:name] == coupon_item[:name]}
+    if cart_num
+      if cart[cart_num][:count] >= coupon_item[:num]
+        cart << cart[cart_num]
+        cart[cart.length][:price] = coupon[:cost] / coupon[:num]
+        cart[cart.length][:name] += " W/ COUPON"
+      end
+    end
   end
+  cart
 end
 
 def apply_clearance(cart)
