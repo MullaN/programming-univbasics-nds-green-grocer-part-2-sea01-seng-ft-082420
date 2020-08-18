@@ -10,7 +10,7 @@ def apply_coupons(cart, coupons)
     if cart_num && cart[cart_num][:count] >= coupon_item[:num]
       cart << {item: "#{cart[cart_num][:item]} W/COUPON", price: coupon_item[:cost] / coupon_item[:num], clearance: cart[cart_num][:clearance], count: (cart[cart_num][:count] / coupon_item[:num]).to_i * coupon_item[:num]}
       if cart[cart_num][:count] % coupon_item[:num] == 0
-        cart.delete_at(cart_num)
+        cart[cart_num][:count] = 0
       else
         cart[cart_num][:count] = cart[cart_num][:count] % coupon_item[:num]
       end
