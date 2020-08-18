@@ -10,7 +10,7 @@ def apply_coupons(cart, coupons)
     cart_num = cart.find_index {|cart_item| cart_item[:name] == coupon_item[:name]}
     if cart_num
       if cart[cart_num][:count] >= coupon_item[:num]
-        cart << {item: "#{cart[cart_num][:item]} W/ COUPON", price: coupon_item[:cost] / coupon_item[:num], clearance: cart[cart_num][:clearance], count: (cart[cart_num][:count] / coupon_item[:num]).to_i * coupon_item[:num]}
+        cart << {item: "#{cart[cart_num][:item]} W/COUPON", price: coupon_item[:cost] / coupon_item[:num], clearance: cart[cart_num][:clearance], count: (cart[cart_num][:count] / coupon_item[:num]).to_i * coupon_item[:num]}
         cart.shift
       end
     end
