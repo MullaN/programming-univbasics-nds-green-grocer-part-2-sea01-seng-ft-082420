@@ -19,7 +19,7 @@ def apply_clearance(cart)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
-  cart.map { |cart_item| cart_item[:price] *= 0.8 if cart_item[:clearance] == true}
+  cart.map { |cart_item| (cart_item[:price] *= 0.8).to_d if cart_item[:clearance] == true}
   cart
 end
 
